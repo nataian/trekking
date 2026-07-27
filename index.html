@@ -6,7 +6,7 @@
 <title>Trekking Núi Dinh 09.08.2026 — Kindtech</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --forest-deep:#16301F;
@@ -17,6 +17,9 @@
     --clay:#E0703A;
     --clay-dark:#B84E24;
     --gold:#F0AE23;
+    --teal:#1E7A73;
+    --blue:#2C5F8A;
+    --purple:#5B4B8A;
     --brown:#5B3E29;
     --ink:#1C2318;
     --paper:#FBF8EF;
@@ -40,8 +43,8 @@
     color:var(--forest-deep);
   }
   .stamp{
-    font-family:'Permanent Marker', cursive;
-    font-weight:400;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
   }
   a{color:inherit;}
   img{display:block; max-width:100%;}
@@ -54,10 +57,10 @@
   .eyebrow{
     display:inline-flex;
     align-items:center;
-    gap:8px;
-    font-size:0.78rem;
+    gap:7px;
+    font-size:0.7rem;
     font-weight:700;
-    letter-spacing:0.16em;
+    letter-spacing:0.18em;
     text-transform:uppercase;
     color:var(--clay-dark);
   }
@@ -287,8 +290,8 @@
 
   /* ---------- GENERIC SECTION HEADS ---------- */
   .sec-head{ max-width:680px; margin-bottom:52px; }
-  .sec-head h2{ font-size:clamp(1.9rem,4vw,2.9rem); margin-top:12px; }
-  .sec-head p{ margin-top:14px; color:#4A4638; font-size:1.02rem; }
+  .sec-head h2{ font-size:clamp(2.2rem,4.8vw,3.4rem); margin-top:10px; letter-spacing:-0.025em; }
+  .sec-head p{ margin-top:12px; color:#5a5642; font-size:0.94rem; font-weight:500; }
 
   /* ---------- LOCATION / ROUTE ---------- */
   #diadiem{ background:var(--sand); }
@@ -321,8 +324,9 @@
   .seg-imgs img{ width:100%; height:150px; object-fit:cover; opacity:.94; }
   .seg-body{ padding:24px 24px 26px; }
   .seg-num{
-    font-family:'Permanent Marker';
-    font-size:1.6rem;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:1.5rem;
     color:var(--clay);
     line-height:1;
   }
@@ -336,34 +340,129 @@
 
   /* ---------- TIMELINE ---------- */
   #lichtrinh{ background:var(--paper); }
-  .tl-wrap{
-    position:relative;
-    margin-top:50px;
-    padding-left:26px;
-    border-left:3px dashed var(--moss);
+
+  /* pre-event card (thứ 6) */
+  .tl-pre{
+    margin-top:44px;
+    display:flex; align-items:stretch;
+    max-width:620px;
   }
-  .tl-item{
-    position:relative;
-    padding:0 0 40px 30px;
+  .tl-pre-badge{
+    flex:none;
+    background:var(--forest);
+    color:var(--sand);
+    font-weight:800;
+    font-size:0.82rem;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    padding:14px 16px;
+    border-radius:16px 0 0 16px;
+    width:100px;
+    line-height:1.3;
   }
-  .tl-item:last-child{ padding-bottom:0; }
-  .tl-item::before{
-    content:"";
-    position:absolute; left:-40.5px; top:2px;
-    width:16px; height:16px; border-radius:50%;
+  .tl-pre-card{
+    flex:1;
+    background:var(--sand-2);
+    border:1px solid rgba(0,0,0,.06);
+    border-left:none;
+    border-radius:0 16px 16px 0;
+    padding:16px 22px;
+    display:flex; align-items:center; gap:16px;
+  }
+  .tl-pre-time{
+    font-family:'Baloo 2', sans-serif; font-weight:800;
+    font-size:1.05rem; color:var(--forest);
+    flex:none;
+  }
+  .tl-pre-ico{
+    flex:none; width:40px; height:40px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--moss);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem;
+  }
+  .tl-pre-card p{ font-size:0.88rem; color:#4A4638; }
+  .tl-pre-card p strong{ display:block; color:var(--ink); }
+  .tl-connector{
+    width:3px; height:26px; margin-left:49px;
+    background-image:repeating-linear-gradient(180deg, var(--moss) 0 6px, transparent 6px 12px);
+  }
+
+  .tl-daybadge{
+    display:inline-block;
     background:var(--clay);
-    border:3px solid var(--paper);
-    box-shadow:0 0 0 3px var(--moss);
+    color:#fff;
+    font-weight:800;
+    font-size:0.82rem;
+    padding:9px 18px;
+    border-radius:100px;
+    margin-bottom:8px;
   }
-  .tl-time{
-    font-family:'Permanent Marker';
-    font-size:1.2rem;
-    color:var(--forest);
+
+  /* horizontal scroll track */
+  .tl-track{
+    position:relative;
+    margin-top:14px;
+    overflow-x:auto;
+    padding:14px 4px 10px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+    scrollbar-color:var(--moss) transparent;
   }
-  .tl-item h4{ font-size:1.08rem; margin-top:2px; }
-  .tl-item p{ font-size:0.9rem; color:#4A4638; margin-top:4px; max-width:560px; }
+  .tl-stops{
+    position:relative;
+    display:flex;
+    gap:6px;
+    min-width:max-content;
+    z-index:1;
+  }
+  .tl-line{
+    position:absolute;
+    left:0; right:0; top:52px;
+    height:3px;
+    background:linear-gradient(90deg, var(--clay), var(--gold), var(--moss), var(--teal), var(--blue), var(--purple));
+    border-radius:3px;
+  }
+  .tl-stop{
+    flex:none;
+    width:132px;
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center;
+  }
+  .tl-stop-time{
+    font-family:'Baloo 2', sans-serif; font-weight:800;
+    font-size:0.95rem;
+    margin-bottom:8px;
+  }
+  .tl-stop-ico{
+    width:54px; height:54px; border-radius:50%;
+    background:var(--paper);
+    border:3px solid var(--clay);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+    position:relative;
+    z-index:2;
+  }
+  .tl-stop-label{
+    margin-top:12px;
+    font-size:0.78rem; font-weight:600;
+    color:#4A4638;
+    line-height:1.35;
+  }
+  .c-morning{ color:var(--clay); }
+  .c-gold{ color:var(--gold); }
+  .c-moss{ color:var(--moss); }
+  .c-teal{ color:var(--teal); }
+  .c-blue{ color:var(--blue); }
+  .c-purple{ color:var(--purple); }
+  .tl-stop-ico.c-morning{ border-color:var(--clay); }
+  .tl-stop-ico.c-gold{ border-color:var(--gold); }
+  .tl-stop-ico.c-moss{ border-color:var(--moss); }
+  .tl-stop-ico.c-teal{ border-color:var(--teal); }
+  .tl-stop-ico.c-blue{ border-color:var(--blue); }
+  .tl-stop-ico.c-purple{ border-color:var(--purple); }
+
   .tl-note{
-    margin-top:36px;
+    margin-top:30px;
     background:var(--sand-2);
     border-radius:16px;
     padding:20px 24px;
@@ -393,8 +492,9 @@
   }
   .act-card:hover{ transform:translateY(-6px); background:rgba(255,255,255,.1); }
   .act-num{
-    font-family:'Permanent Marker';
-    font-size:1.7rem;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:1.6rem;
     color:var(--gold);
   }
   .act-card h3{ color:#fff; font-size:1.08rem; margin-top:8px; }
@@ -488,8 +588,9 @@
   }
   .prep-list li::before{
     content:counter(prep,decimal-leading-zero);
-    font-family:'Permanent Marker';
-    font-size:1.1rem;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:1.05rem;
     color:var(--gold);
     flex:none;
   }
@@ -545,6 +646,21 @@
   .cta-groupinfo b{ display:block; font-size:1.5rem; font-family:'Be Vietnam Pro'; font-weight:900; color:var(--gold); }
   .cta-groupinfo span{ font-size:0.76rem; color:rgba(245,239,220,.7); }
   #dangky .btn-primary{ margin-top:36px; font-size:1.05rem; padding:18px 40px; }
+  .cta-qr{
+    margin:34px auto 0;
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+  }
+  .cta-qr img{
+    width:132px; height:132px;
+    padding:10px;
+    background:var(--paper);
+    border-radius:16px;
+    box-shadow:0 14px 30px -12px rgba(0,0,0,.5);
+  }
+  .cta-qr span{
+    font-size:0.78rem; font-weight:600;
+    color:rgba(245,239,220,.75);
+  }
 
   footer{
     background:var(--forest-deep);
@@ -581,6 +697,13 @@
     .nav-cta{ display:none; }
     .actgrid{ grid-template-columns:1fr; }
     .act-card{ text-align:left; }
+    .tl-pre{ flex-direction:column; max-width:100%; }
+    .tl-pre-badge{ width:100%; border-radius:16px 16px 0 0; padding:10px; }
+    .tl-pre-card{ border-radius:0 0 16px 16px; border-left:1px solid rgba(0,0,0,.06); flex-wrap:wrap; }
+    .tl-connector{ margin-left:20px; }
+    .tl-stop{ width:112px; }
+    .tl-stop-ico{ width:46px; height:46px; font-size:1.2rem; }
+    .tl-line{ top:45px; }
   }
 </style>
 </head>
@@ -610,7 +733,7 @@
   <div class="container hero-inner">
     <div class="hero-date">
       <span>📅 Chủ nhật, 09.08.2026</span>
-      <span>⏱ 04:30 – 17:00</span>
+      <span>⏱ 04:00 – 17:30</span>
       <span>👥 Offline HCM · 45 thành viên · 5 nhóm</span>
     </div>
     <h1>Trekking<br><em>Núi Dinh</em></h1>
@@ -688,40 +811,86 @@
   <div class="container">
     <div class="sec-head">
       <span class="eyebrow">Lịch trình</span>
-      <h2>Khung chương trình dự kiến trong ngày</h2>
-      <p>Diễn ra trong khung giờ 04:30 – 17:00, Chủ nhật 09.08.2026. Chi tiết đầy đủ theo từng mốc thời gian được cập nhật tại bảng timeline riêng của Ban tổ chức.</p>
+      <h2>Timeline Trekking Núi Dinh</h2>
+      <p>Chủ nhật, 09/08/2026 · 04:00 – 17:30. Đầy đủ mốc thời gian từ buổi họp online chuẩn bị đến khi kết thúc hành trình.</p>
     </div>
 
-    <div class="tl-wrap">
-      <div class="tl-item">
-        <div class="tl-time">04:30</div>
-        <h4>Tập trung & khởi hành</h4>
-        <p>Đoàn tập trung tại điểm hẹn TP.HCM, xe khách đưa đoàn di chuyển đến chân núi Dinh.</p>
+    <!-- Pre-event: buổi họp online tối thứ 6 -->
+    <div class="tl-pre">
+      <div class="tl-pre-badge">Thứ 6 – 07/08</div>
+      <div class="tl-pre-card">
+        <span class="tl-pre-time">20:00</span>
+        <div class="tl-pre-ico">💻</div>
+        <p>Online Zoom trước trekking:<strong>Hậu cần, chia nhóm</strong></p>
       </div>
-      <div class="tl-item">
-        <div class="tl-time">Sáng</div>
-        <h4>Trekking chinh phục Đỉnh La Bàn</h4>
-        <p>Khởi động — trekking qua 2 đoạn đường (chân núi → chùa Diệu Linh → đỉnh La Bàn) — giãn cơ, ước tính 2–3 tiếng leo núi.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">Trưa</div>
-        <h4>Ăn cơm chánh niệm trên đỉnh núi</h4>
-        <p>Dùng bữa trưa, nghỉ ngơi an vui, buông thư giữa không gian núi rừng.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">Chiều</div>
-        <h4>Nhặt rác xuống núi & team building</h4>
-        <p>Vừa xuống núi vừa nhặt rác lan tỏa ý thức bảo vệ môi trường, chia sẻ "Hiểu thương", dùng bữa chiều tại chùa.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">17:00</div>
-        <h4>Kết thúc hành trình</h4>
-        <p>Đoàn di chuyển về lại điểm tập trung TP.HCM, khép lại một ngày rèn thân – tĩnh tâm – gắn kết.</p>
+    </div>
+    <div class="tl-connector"></div>
+
+    <!-- Main: timeline Chủ nhật -->
+    <div class="tl-daybadge">Chủ nhật – 09/08</div>
+    <div class="tl-track">
+      <div class="tl-line"></div>
+      <div class="tl-stops">
+        <div class="tl-stop">
+          <span class="tl-stop-time c-morning">04:00</span>
+          <div class="tl-stop-ico c-morning">🚩</div>
+          <p class="tl-stop-label">Tập trung<br>xuất phát</p>
+        </div>
+        <div class="tl-stop">
+          <span class="tl-stop-time c-morning">05:00</span>
+          <div class="tl-stop-ico c-morning">🚌</div>
+          <p class="tl-stop-label">Di chuyển:<br>TP.HCM → Núi Dinh</p>
+        </div>
+        <div class="tl-stop">
+          <span class="tl-stop-time c-morning">07:30</span>
+          <div class="tl-stop-ico c-morning">🤸</div>
+          <p class="tl-stop-label">Warm-up</p>
+        </div>
+        <div class="tl-stop">
+          <span class="tl-stop-time c-gold">08:00</span>
+          <div class="tl-stop-ico c-gold">🥾</div>
+          <p class="tl-stop-label">Trekking theo nhóm<br>– Team Building</p>
+        </div>
+        <div class="tl-stop">
+          <span class="tl-stop-time c-gold">11:00</span>
+          <div class="tl-stop-ico c-gold">📍</div>
+          <p class="tl-stop-label">Check-in –<br>Dùng trưa chánh niệm</p>
+        </div>
+        <div class="tl-stop">
+          <span class="tl-stop-time c-moss">11:30</span>
+          <div class="tl-stop-ico c-moss">🧘</div>
+          <p class="tl-stop-label">Ngồi bình yên, thư giãn<br>và trị liệu – Nghỉ ngơi tự do</p>
+        </div>
+        <div class="tl-stop">
+          <span class="tl-stop-time c-moss">12:30</span>
+          <div class="tl-stop-ico c-moss">🎒</div>
+          <p class="tl-stop-label">Chuẩn bị<br>xuống núi</p>
+        </div>
+        <div class="tl-stop">
+          <span class="tl-stop-time c-teal">13:00</span>
+          <div class="tl-stop-ico c-teal">🧹</div>
+          <p class="tl-stop-label">Xuống núi –<br>Nhặt rác</p>
+        </div>
+        <div class="tl-stop">
+          <span class="tl-stop-time c-blue">14:30</span>
+          <div class="tl-stop-ico c-blue">🍚</div>
+          <p class="tl-stop-label">Dùng cơm chiều tại chùa – Vệ sinh<br>cá nhân – Nghỉ ngơi tự do</p>
+        </div>
+        <div class="tl-stop">
+          <span class="tl-stop-time c-blue">15:30</span>
+          <div class="tl-stop-ico c-blue">🚌</div>
+          <p class="tl-stop-label">Di chuyển<br>về TP.HCM</p>
+        </div>
+        <div class="tl-stop">
+          <span class="tl-stop-time c-purple">17:30</span>
+          <div class="tl-stop-ico c-purple">✅</div>
+          <p class="tl-stop-label">Check-out đồ đạc –<br>Kết thúc chương trình</p>
+        </div>
       </div>
     </div>
 
     <div class="tl-note">
-      📋 <span>Timeline chi tiết theo từng mốc giờ được Ban tổ chức cập nhật tại
+      📋 <span>Đây là khung giờ tổng quan. Chi tiết đầy đủ, cập nhật theo thời gian thực được Ban tổ chức quản lý tại
       <a href="https://docs.google.com/spreadsheets/d/1s9cJrt_HPdltEzSwLzG1n7VNxmOOp57c1tL2A7T0iHU/edit?usp=sharing" target="_blank" rel="noopener">Workspace Trekking Núi Dinh Gia đình Kindtech</a>.</span>
     </div>
   </div>
@@ -856,7 +1025,7 @@
   <div class="container">
     <span class="eyebrow" style="color:var(--gold);">Sẵn sàng lên đường?</span>
     <h2>Đăng ký hành trình Trekking Núi Dinh</h2>
-    <p>Chủ nhật, 09.08.2026 · 04:30 – 17:00 · Số lượng giới hạn để Ban tổ chức chăm sóc đoàn chu đáo.</p>
+    <p>Chủ nhật, 09.08.2026 · 04:00 – 17:30 · Số lượng giới hạn để Ban tổ chức chăm sóc đoàn chu đáo.</p>
 
     <div class="cta-groupinfo">
       <div><b>45</b><span>thành viên offline HCM</span></div>
@@ -865,7 +1034,13 @@
     </div>
 
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSc3OR2YHJoegGnEVdkVsg98TVxa66BMPkRvvyT-HOIDKqs0Gg/viewform" target="_blank" rel="noopener" class="btn btn-primary">Đăng ký ngay →</a>
-    <p style="margin-top:14px; font-size:0.78rem; color:rgba(245,239,220,.55);">* Đăng ký qua Google Form chính thức của Kindtech.</p>
+
+    <div class="cta-qr">
+      <img src="data:image/png;base64,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" alt="QR code đăng ký Trekking Núi Dinh">
+      <span>Quét mã để đăng ký nhanh</span>
+    </div>
+
+    <p style="margin-top:10px; font-size:0.78rem; color:rgba(245,239,220,.55);">* Đăng ký qua Google Form chính thức của Kindtech.</p>
   </div>
 </section>
 
